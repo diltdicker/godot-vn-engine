@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7d1135ml5wxr"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/nodes/cust_panel.gd" id="1_43dhd"]
+
+[node name="CustPanel" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.005
+anchor_top = 0.017
+anchor_right = 0.247
+anchor_bottom = 0.211
+offset_left = 0.24
+offset_top = -0.0160007
+offset_right = -0.544006
+offset_bottom = 0.271988
+script = ExtResource("1_43dhd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 18.0
+offset_right = -46.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Node Panel"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = 56.0
+offset_right = -145.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)

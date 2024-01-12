@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://hovudobgclw5"]
+
+[node name="SignalNode" type="GraphNode"]
+offset_right = 211.0
+offset_bottom = 80.0
+mouse_filter = 1
+title = "Signal"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "ID:"
+
+[node name="NodeId" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+text = "47e8461c03f211"
+editable = false
+expand_to_text_length = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Signal Param:"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "<scenario_1>"
+expand_to_text_length = true
+caret_blink = true

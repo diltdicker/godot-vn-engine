@@ -1,0 +1,234 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwxncj7dwr3sc"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/vn_grpah_editor.gd" id="1_80ain"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/test.gd" id="2_yk2c7"]
+
+[node name="VnEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80ain")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_offset = Vector2(-1, 0)
+
+[node name="GraphElement" type="GraphElement" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 211.92
+offset_right = 298.0
+offset_bottom = 303.92
+position_offset = Vector2(175, 211.92)
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit/GraphElement"]
+layout_mode = 2
+offset_right = 122.0
+offset_bottom = 92.0
+title = "Sample"
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 130.92
+offset_right = 445.0
+offset_bottom = 216.92
+mouse_filter = 1
+position_offset = Vector2(352, 130.92)
+resizable = true
+title = "Test"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("2_yk2c7")
+
+[node name="Control" type="Control" parent="GraphEdit/GraphNode"]
+layout_mode = 2
+
+[node name="GraphNode2" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 192.92
+offset_right = 631.0
+offset_bottom = 299.92
+mouse_filter = 1
+position_offset = Vector2(538, 192.92)
+resizable = true
+title = "Test"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("2_yk2c7")
+
+[node name="Label" type="Label" parent="GraphEdit/GraphNode2"]
+layout_mode = 2
+text = "test
+"
+
+[node name="Label2" type="Label" parent="GraphEdit/GraphNode2"]
+layout_mode = 2
+text = "test
+"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.073
+offset_bottom = -6.304
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -13.0
+offset_bottom = -4.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="ExportButton" type="Button" parent="Panel/HBoxContainer/CenterContainer"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Export / Save"
+
+[node name="CenterContainer2" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="LoadButton" type="Button" parent="Panel/HBoxContainer/CenterContainer2"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Load"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="StartNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer3"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Start"
+
+[node name="CenterContainer4" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TalkNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer4"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Dialogue"
+
+[node name="CenterContainer5" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="SignalNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer5"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Signal"
+
+[node name="CenterContainer6" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="DecisionNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer6"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Decision"
+
+[node name="CenterContainer11" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="DecisionNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer11"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Input"
+
+[node name="CenterContainer7" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer7"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Variable"
+
+[node name="CenterContainer10" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer10"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Condition"
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer8" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer8"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Scene Change"
+
+[node name="CenterContainer9" type="CenterContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer9"]
+layout_mode = 2
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Sprite Change"

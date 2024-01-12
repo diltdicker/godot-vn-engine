@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2wlc7vk11h4w"]
+
+[ext_resource type="PackedScene" uid="uid://b072n5u4tooum" path="res://addons/godot_vn/vn_editor/NotesNode.tscn" id="1_r8j3y"]
+[ext_resource type="PackedScene" uid="uid://bvj75ht776ctu" path="res://addons/godot_vn/vn_editor/StartNode.tscn" id="2_wctxd"]
+[ext_resource type="PackedScene" uid="uid://cv2syccfk3u6n" path="res://addons/godot_vn/vn_editor/DialogueNode.tscn" id="3_rmanc"]
+[ext_resource type="PackedScene" uid="uid://cbi3o03t2l8cb" path="res://addons/godot_vn/vn_editor/DecisionNode.tscn" id="4_j1ims"]
+[ext_resource type="PackedScene" uid="uid://bi1emcogiim6r" path="res://addons/godot_vn/vn_editor/ConditionNode.tscn" id="5_7a0vv"]
+[ext_resource type="PackedScene" uid="uid://chqbl3g5xbkjk" path="res://addons/godot_vn/vn_editor/InputNode.tscn" id="6_kmtt3"]
+[ext_resource type="PackedScene" uid="uid://hovudobgclw5" path="res://addons/godot_vn/vn_editor/SignalNode.tscn" id="7_hn4yy"]
+[ext_resource type="PackedScene" uid="uid://byg32go5q5eca" path="res://addons/godot_vn/vn_editor/VariableNode.tscn" id="8_hjxkr"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScreenContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ButtonPanelContainer" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Reset"
+
+[node name="ExportButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Export"
+
+[node name="LoadButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Load"
+
+[node name="VSeparator" type="VSeparator" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+
+[node name="NodeStartButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Start"
+
+[node name="NodeDialogueButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Dialogue"
+
+[node name="NodeInputButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Input"
+
+[node name="NodeDecisionButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Decision"
+
+[node name="NodeVariableButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Variable"
+
+[node name="NodeConditionButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Condition
+"
+
+[node name="NodeSignalButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Signal"
+
+[node name="NodeJumpButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "JumpTo"
+
+[node name="NodeNotestButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Notes"
+
+[node name="VSeparator2" type="VSeparator" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+
+[node name="SpriteChangeButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "SpriteChange"
+
+[node name="SceneChangeButton2" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "SceneChange"
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/ButtonPanelContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScreenContainer/ButtonPanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Version 0.1.0"
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GraphEdit" type="GraphEdit" parent="ScreenContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GraphNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("1_r8j3y")]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 147.0
+offset_right = 533.0
+offset_bottom = 372.0
+position_offset = Vector2(333, 147)
+
+[node name="StartNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("2_wctxd")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 224.0
+offset_right = 269.0
+offset_bottom = 343.0
+position_offset = Vector2(39, 224)
+
+[node name="DialogueNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("3_rmanc")]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 80.0
+offset_right = 929.0
+offset_bottom = 419.0
+position_offset = Vector2(579, 80)
+
+[node name="DecisionNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("4_j1ims")]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 399.0
+offset_right = 260.0
+offset_bottom = 615.0
+position_offset = Vector2(49, 399)
+
+[node name="VaraiableNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("5_7a0vv")]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 52.0
+offset_right = 1217.0
+offset_bottom = 262.0
+position_offset = Vector2(950, 52)
+
+[node name="InputNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("6_kmtt3")]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 283.0
+offset_right = 1220.0
+offset_bottom = 468.0
+position_offset = Vector2(992, 283)
+
+[node name="SignalNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("7_hn4yy")]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 429.0
+offset_right = 553.0
+offset_bottom = 548.0
+position_offset = Vector2(298, 429)
+
+[node name="CondiitonNode" parent="ScreenContainer/MarginContainer/GraphEdit" instance=ExtResource("8_hjxkr")]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 498.0
+offset_right = 1001.0
+offset_bottom = 708.0
+scale = Vector2(1, 1)
+position_offset = Vector2(593, 498)
+
+[node name="VersionContainer" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+alignment = 2
