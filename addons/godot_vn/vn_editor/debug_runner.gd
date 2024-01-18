@@ -77,6 +77,9 @@ func handle_next_node(vn_node: Dictionary):
 			print("END of VN with param [%s]" % vn_node.end_param)
 			hide_all()
 			
+		VnGraphNode.VnNodeType.START:
+			cur_node = VNRunnerUtil.get_next_node(cur_node)
+			handle_next_node(cur_node)
 		_:
 			push_error("unkown node type [%s] for node [%s]" % [vn_node.node_type, vn_node.id])
 
