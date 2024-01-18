@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85qkvvahdo4"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/char_container_subnode.gd" id="1_pl3tm"]
+
+[node name="CharContainer" type="HBoxContainer"]
+script = ExtResource("1_pl3tm")
+
+[node name="CharNumLabel" type="Label" parent="."]
+layout_mode = 2
+text = "0:"
+
+[node name="NameEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "text here..."
+expand_to_text_length = true
+clear_button_enabled = true
+
+[connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]

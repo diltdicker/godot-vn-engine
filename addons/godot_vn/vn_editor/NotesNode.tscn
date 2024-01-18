@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b072n5u4tooum"]
+[gd_scene load_steps=2 format=3 uid="uid://b072n5u4tooum"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/notes_node.gd" id="1_17xhg"]
 
 [node name="NotesNode" type="GraphNode"]
 offset_right = 200.0
@@ -15,11 +17,38 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_17xhg")
+node_type = 7
+
+[node name="NodeIdContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NodeIdContainer"]
+layout_mode = 2
+text = "ID:"
+
+[node name="NodeId" type="LineEdit" parent="NodeIdContainer"]
+layout_mode = 2
+text = "NotesNode"
+editable = false
+expand_to_text_length = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer"]
+[node name="NotesEdit" type="TextEdit" parent="MarginContainer"]
 layout_mode = 2
+placeholder_text = "notes here..."
+wrap_mode = 1
 caret_blink = true

@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://hovudobgclw5"]
+[gd_scene load_steps=2 format=3 uid="uid://by7ll2f2cwcxi"]
 
-[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/signal_node.gd" id="1_3hn7x"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/end_node.gd" id="1_euhqc"]
 
-[node name="SignalNode" type="GraphNode"]
-offset_right = 211.0
-offset_bottom = 80.0
+[node name="EndNode" type="GraphNode"]
+offset_right = 175.0
+offset_bottom = 144.0
 mouse_filter = 1
-title = "Signal"
-slot/0/left_enabled = false
+title = "EndNode"
+slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
@@ -16,17 +16,26 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
-slot/1/left_enabled = true
+slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color(1, 1, 1, 1)
 slot/1/left_icon = null
-slot/1/right_enabled = true
+slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-script = ExtResource("1_3hn7x")
-node_type = 6
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("1_euhqc")
+node_type = 8
 
 [node name="NodeIdContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -37,18 +46,18 @@ text = "ID:"
 
 [node name="NodeId" type="LineEdit" parent="NodeIdContainer"]
 layout_mode = 2
-text = "SignalNode"
+text = "EndNode"
 editable = false
 expand_to_text_length = true
 
-[node name="SignalParamContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SignalParamContainer"]
+[node name="Label" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
-text = "Signal Param:"
+text = "End Signal Param:"
 
-[node name="SignalParam" type="LineEdit" parent="SignalParamContainer"]
+[node name="EndParam" type="LineEdit" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "text here..."

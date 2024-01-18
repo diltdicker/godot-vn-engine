@@ -1,14 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chqbl3g5xbkjk"]
+[gd_scene load_steps=2 format=3 uid="uid://nvfn1x1y8wi2"]
 
-[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/input_node.gd" id="1_uo0xf"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/goto_node.gd" id="1_cc221"]
 
-[node name="InputNode" type="GraphNode"]
-offset_right = 332.0
-offset_bottom = 181.0
+[node name="GoToNode" type="GraphNode"]
+offset_right = 175.0
+offset_bottom = 144.0
 mouse_filter = 1
-resizable = true
-title = "Input"
-slot/0/left_enabled = false
+title = "GoTo"
+slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
@@ -17,11 +16,11 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
-slot/1/left_enabled = true
+slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color(1, 1, 1, 1)
 slot/1/left_icon = null
-slot/1/right_enabled = true
+slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
@@ -35,17 +34,8 @@ slot/2/right_type = 0
 slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
-slot/3/left_enabled = false
-slot/3/left_type = 0
-slot/3/left_color = Color(1, 1, 1, 1)
-slot/3/left_icon = null
-slot/3/right_enabled = false
-slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
-slot/3/right_icon = null
-slot/3/draw_stylebox = true
-script = ExtResource("1_uo0xf")
-node_type = 2
+script = ExtResource("1_cc221")
+node_type = 9
 
 [node name="NodeIdContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -56,7 +46,7 @@ text = "ID:"
 
 [node name="NodeId" type="LineEdit" parent="NodeIdContainer"]
 layout_mode = 2
-text = "InputNode"
+text = "GotoNode"
 editable = false
 expand_to_text_length = true
 
@@ -65,24 +55,11 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
-text = "Variable Name:"
+text = "GoTo Node ID:"
 
-[node name="VarNameEdit" type="LineEdit" parent="HBoxContainer2"]
+[node name="GoToIDEdit" type="LineEdit" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "variable name here..."
+placeholder_text = "NodeID here..."
 expand_to_text_length = true
-clear_button_enabled = true
-caret_blink = true
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-text = "User Text:"
-
-[node name="UserInputEdit" type="TextEdit" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "What is your Name?..."
-wrap_mode = 1
-scroll_fit_content_height = true
 caret_blink = true

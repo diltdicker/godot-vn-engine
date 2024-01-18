@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvj75ht776ctu"]
 
-[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/start_node.gd" id="1_n11q1"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/start_node.gd" id="1_ck4qg"]
 
-[node name="StartNode" type="GraphNode" node_paths=PackedStringArray("node_id_label")]
+[node name="StartNode" type="GraphNode"]
 offset_right = 211.0
 offset_bottom = 80.0
 mouse_filter = 1
@@ -25,19 +25,27 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-script = ExtResource("1_n11q1")
-node_id_label = NodePath("HBoxContainer/NodeId")
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("1_ck4qg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="NodeIdContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="NodeIdContainer"]
 layout_mode = 2
 text = "ID:"
 
-[node name="NodeId" type="LineEdit" parent="HBoxContainer"]
+[node name="NodeId" type="LineEdit" parent="NodeIdContainer"]
 layout_mode = 2
-text = "47e8461c03b0aa"
+text = "StartNode"
 editable = false
 expand_to_text_length = true
 
@@ -46,10 +54,27 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
-text = "StartId:"
+text = "Start Param:"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer2"]
+[node name="StartId" type="LineEdit" parent="HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "<scenario_1>"
+placeholder_text = "text here..."
 expand_to_text_length = true
+caret_blink = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "=="
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="RunDebugButton" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+text = "Run / Debug"
+
+[connection signal="color_changed" from="HBoxContainer2/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="RunDebugButton" to="." method="_on_run_debug_button_pressed"]

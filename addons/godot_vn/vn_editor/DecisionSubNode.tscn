@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpefswgek2w1e"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/decision_sub_node.gd" id="1_7sna2"]
+
+[node name="DecisionSubNode" type="HBoxContainer"]
+script = ExtResource("1_7sna2")
+
+[node name="DecisionId" type="Label" parent="."]
+layout_mode = 2
+text = "0:"
+
+[node name="DecisionText" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+placeholder_text = "<decision text>"
+expand_to_text_length = true
+clear_button_enabled = true
+caret_blink = true

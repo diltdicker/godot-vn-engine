@@ -1,0 +1,209 @@
+[gd_resource type="Resource" script_class="VnGraphResource" load_steps=2 format=3 uid="uid://08ew7urkqx6g"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/utils/vn_graph_resource.gd" id="1_46yld"]
+
+[resource]
+script = ExtResource("1_46yld")
+gdvn_version = 1
+vn_character_list = ["deadra"]
+vn_data_graph = {
+"47e84781e198f3": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e84781e198f3",
+"from_port": 0,
+"to_node": &"47e84781e208f0",
+"to_port": 0
+}],
+"dialogue": "what will you choose?",
+"id": "47e84781e198f3",
+"node_type": "DIALOGUE",
+"position": [903.992, 148.459],
+"position_offset": [-572.761, -323.226]
+},
+"47e84781e208f0": {
+"connections": [{
+"from_node": &"47e84781e208f0",
+"from_port": 0,
+"to_node": &"47e84781e31651",
+"to_port": 0
+}, {
+"from_node": &"47e84781e208f0",
+"from_port": 1,
+"to_node": &"47e84781e3239b",
+"to_port": 0
+}],
+"decisions": ["yellow", "red"],
+"id": "47e84781e208f0",
+"node_type": "DECISION",
+"notes": "",
+"position": [1319.99, 172.459],
+"position_offset": [-156.761, -299.226]
+},
+"47e84781e31651": {
+"connections": [{
+"from_node": &"47e84781e31651",
+"from_port": 0,
+"to_node": &"47e84781e39846",
+"to_port": 0
+}],
+"id": "47e84781e31651",
+"node_type": "VARIABLE",
+"position": [1714.99, 115.459],
+"position_offset": [238.239, -356.226],
+"var_name": "foo",
+"var_op": "SET",
+"var_type": "INT",
+"var_value": -2
+},
+"47e84781e3239b": {
+"connections": [{
+"from_node": &"47e84781e3239b",
+"from_port": 0,
+"to_node": &"47e84781e39846",
+"to_port": 0
+}],
+"id": "47e84781e3239b",
+"node_type": "VARIABLE",
+"position": [1709.99, 348.459],
+"position_offset": [233.239, -123.226],
+"var_name": "foo",
+"var_op": "SET",
+"var_type": "INT",
+"var_value": 2
+},
+"47e84781e39846": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e84781e39846",
+"from_port": 0,
+"to_node": &"47e8478221861e",
+"to_port": 0
+}],
+"dialogue": "foo is ${foo}",
+"id": "47e84781e39846",
+"node_type": "DIALOGUE",
+"position": [2097.99, 229.459],
+"position_offset": [621.239, -242.226]
+},
+"47e8478221861e": {
+"connections": [{
+"from_node": &"47e8478221861e",
+"from_port": 1,
+"to_node": &"47e8478221fd0b",
+"to_port": 0
+}, {
+"from_node": &"47e8478221861e",
+"from_port": 0,
+"to_node": &"47e8478221e472",
+"to_port": 0
+}],
+"id": "47e8478221861e",
+"logic": "LESS_THAN_EQUALS",
+"node_type": "CONDITION",
+"position": [2564.99, 244.459],
+"position_offset": [1088.24, -227.226],
+"var_name": "foo",
+"var_type": "INT",
+"var_value": 0.0
+},
+"47e8478221e472": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e8478221e472",
+"from_port": 0,
+"to_node": &"47e8478222dad6",
+"to_port": 0
+}],
+"dialogue": "lose",
+"id": "47e8478221e472",
+"node_type": "DIALOGUE",
+"position": [3084.99, 402.458],
+"position_offset": [1608.24, -69.2262]
+},
+"47e8478221fd0b": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e8478221fd0b",
+"from_port": 0,
+"to_node": &"47e8478222d946",
+"to_port": 0
+}],
+"dialogue": "win",
+"id": "47e8478221fd0b",
+"node_type": "DIALOGUE",
+"position": [3076.99, 169.459],
+"position_offset": [1600.24, -302.226]
+},
+"47e8478222d946": {
+"connections": [],
+"end_param": "good end",
+"id": "47e8478222d946",
+"node_type": "END",
+"position": [3542.99, 233.459],
+"position_offset": [2066.24, -238.226]
+},
+"47e8478222dad6": {
+"connections": [],
+"end_param": "bad end",
+"id": "47e8478222dad6",
+"node_type": "END",
+"position": [3502.99, 452.458],
+"position_offset": [2026.24, -19.2262]
+},
+"47e8478228f20c": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e8478228f20c",
+"from_port": 0,
+"to_node": &"47e8478229206c",
+"to_port": 0
+}],
+"dialogue": "Who are You?",
+"id": "47e8478228f20c",
+"node_type": "DIALOGUE",
+"position": [503.749, -81.1104],
+"position_offset": [-973.004, -552.795]
+},
+"47e8478229206c": {
+"connections": [{
+"from_node": &"47e8478229206c",
+"from_port": 0,
+"to_node": &"47e84782298e7c",
+"to_port": 0
+}],
+"id": "47e8478229206c",
+"node_type": "INPUT",
+"position": [517.149, 137.79],
+"position_offset": [-959.604, -333.895],
+"user_input_q": "What is your name:",
+"var_name": "name"
+},
+"47e84782298e7c": {
+"character": "deadra",
+"connections": [{
+"from_node": &"47e84782298e7c",
+"from_port": 0,
+"to_node": &"47e84781e198f3",
+"to_port": 0
+}],
+"dialogue": "You are, [color=blue]${name}[/color]. Interesting...",
+"id": "47e84782298e7c",
+"node_type": "DIALOGUE",
+"position": [501.549, 344.59],
+"position_offset": [-975.204, -127.095]
+}
+}
+vn_start_nodes = [{
+"connections": [{
+"from_node": &"47e84781e053a0",
+"from_port": 0,
+"to_node": &"47e8478228f20c",
+"to_port": 0
+}],
+"id": "47e84781e053a0",
+"node_type": "START",
+"position": [179.113, 66.7466],
+"position_offset": [-1297.64, -404.938],
+"start_param": ""
+}]

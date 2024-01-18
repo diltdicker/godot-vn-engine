@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bqn30wt4sg7r"]
+
+[node name="ExportVnRes" type="PopupPanel"]
+size = Vector2i(392, 159)
+
+[node name="PopupPanel" type="ConfirmationDialog" parent="."]
+visible = true

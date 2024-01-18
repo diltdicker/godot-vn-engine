@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-const VnGraphEditPanel = preload("res://addons/godot_vn/vn_editor/VnGraph.tscn")
+const VnGraphEditPanel = preload("res://addons/godot_vn/vn_editor/VnGraphEditor.tscn")
 var vn_edit_panel_instance
 
 func _enter_tree():
@@ -39,7 +39,7 @@ func _make_visible(visible):
 
 
 func _get_plugin_name():
-	return "VisualNovelEditor"
+	return "GodotVN"
 
 
 func _get_plugin_icon():

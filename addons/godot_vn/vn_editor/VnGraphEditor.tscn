@@ -1,234 +1,189 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwxncj7dwr3sc"]
+[gd_scene load_steps=6 format=3 uid="uid://b2wlc7vk11h4w"]
 
-[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/vn_grpah_editor.gd" id="1_80ain"]
-[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/test.gd" id="2_yk2c7"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/vn_graph_editor.gd" id="1_qgyff"]
+[ext_resource type="PackedScene" uid="uid://bedaqdcy6qtb1" path="res://addons/godot_vn/vn_editor/DialogPopUp.tscn" id="2_hx43m"]
+[ext_resource type="PackedScene" uid="uid://ddvx4ixpobcii" path="res://addons/godot_vn/vn_editor/DecisionPopUp.tscn" id="3_kbqkc"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_editor/debug_runner.gd" id="3_m802e"]
+[ext_resource type="PackedScene" uid="uid://bavcst8iplh5h" path="res://addons/godot_vn/vn_editor/InputPopUp.tscn" id="4_oucfa"]
 
-[node name="VnEditor" type="Control"]
-layout_mode = 3
+[node name="VnGraphEditor" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_80ain")
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="GraphEdit" type="GraphEdit" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scroll_offset = Vector2(-1, 0)
-
-[node name="GraphElement" type="GraphElement" parent="GraphEdit"]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 211.92
-offset_right = 298.0
-offset_bottom = 303.92
-position_offset = Vector2(175, 211.92)
-
-[node name="GraphNode" type="GraphNode" parent="GraphEdit/GraphElement"]
-layout_mode = 2
-offset_right = 122.0
-offset_bottom = 92.0
-title = "Sample"
-
-[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
-layout_mode = 0
-offset_left = 353.0
-offset_top = 130.92
-offset_right = 445.0
-offset_bottom = 216.92
-mouse_filter = 1
-position_offset = Vector2(352, 130.92)
-resizable = true
-title = "Test"
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-script = ExtResource("2_yk2c7")
-
-[node name="Control" type="Control" parent="GraphEdit/GraphNode"]
+[node name="ScreenContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="GraphNode2" type="GraphNode" parent="GraphEdit"]
-layout_mode = 0
-offset_left = 539.0
-offset_top = 192.92
-offset_right = 631.0
-offset_bottom = 299.92
-mouse_filter = 1
-position_offset = Vector2(538, 192.92)
-resizable = true
-title = "Test"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 0
-slot/1/left_color = Color(1, 1, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-script = ExtResource("2_yk2c7")
-
-[node name="Label" type="Label" parent="GraphEdit/GraphNode2"]
-layout_mode = 2
-text = "test
-"
-
-[node name="Label2" type="Label" parent="GraphEdit/GraphNode2"]
-layout_mode = 2
-text = "test
-"
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.073
-offset_bottom = -6.304
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 4.0
-offset_right = -13.0
-offset_bottom = -4.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
+[node name="ButtonPanelContainer" type="HBoxContainer" parent="ScreenContainer"]
 layout_mode = 2
 
-[node name="ExportButton" type="Button" parent="Panel/HBoxContainer/CenterContainer"]
+[node name="ResetButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Export / Save"
+text = "Reset"
 
-[node name="CenterContainer2" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="LoadButton" type="Button" parent="Panel/HBoxContainer/CenterContainer2"]
+[node name="ExportButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
+text = "Export"
+
+[node name="LoadButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
 text = "Load"
 
-[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 
-[node name="CenterContainer3" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="StartNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer3"]
+[node name="NodeStartButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
 text = "Start"
 
-[node name="CenterContainer4" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="TalkNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer4"]
+[node name="NodeEndButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
+text = "End
+"
+
+[node name="NodeDialogueButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
 text = "Dialogue"
 
-[node name="CenterContainer5" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="SignalNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer5"]
+[node name="NodeInputButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Signal"
-
-[node name="CenterContainer6" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="DecisionNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer6"]
-layout_mode = 2
-focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Decision"
-
-[node name="CenterContainer11" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="DecisionNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer11"]
-layout_mode = 2
-focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
 text = "Input"
 
-[node name="CenterContainer7" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer7"]
+[node name="NodeDecisionButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
+text = "Decision"
+
+[node name="NodeVariableButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
 text = "Variable"
 
-[node name="CenterContainer10" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer10"]
+[node name="NodeConditionButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Condition"
+text = "Condition
+"
 
-[node name="VSeparator2" type="VSeparator" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="CenterContainer8" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer8"]
+[node name="NodeSignalButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Scene Change"
+text = "Signal"
 
-[node name="CenterContainer9" type="CenterContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="VaribleNButton" type="Button" parent="Panel/HBoxContainer/CenterContainer9"]
+[node name="NodeGoToButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
 layout_mode = 2
 focus_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Sprite Change"
+text = "GoTo"
+
+[node name="NodeNotesButton" type="Button" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Notes"
+
+[node name="VSeparator2" type="VSeparator" parent="ScreenContainer/ButtonPanelContainer"]
+layout_mode = 2
+
+[node name="MoreButton" type="MenuButton" parent="ScreenContainer/ButtonPanelContainer"]
+visible = false
+layout_mode = 2
+text = "More"
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/ButtonPanelContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScreenContainer/ButtonPanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Version 0.1.0"
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GraphEdit" type="GraphEdit" parent="ScreenContainer/MarginContainer" node_paths=PackedStringArray("exportMenu", "loadMenu")]
+layout_mode = 2
+snapping_enabled = false
+right_disconnects = true
+connection_lines_curvature = 1.0
+script = ExtResource("1_qgyff")
+exportMenu = NodePath("../../../ExportDialog")
+loadMenu = NodePath("../../../OpenDialog")
+
+[node name="VersionContainer" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ExportDialog" type="FileDialog" parent="."]
+title = "Export VN Graph"
+position = Vector2i(375, 100)
+size = Vector2i(550, 550)
+exclusive = false
+popup_window = true
+ok_button_text = "Save"
+filters = PackedStringArray("*.gdvn.tres ; Godot VisualNovel")
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(375, 100)
+size = Vector2i(550, 550)
+exclusive = false
+popup_window = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.gdvn.tres ; Godot VisualNovel")
+
+[node name="DialogPopUp" parent="." instance=ExtResource("2_hx43m")]
+visible = false
+
+[node name="DecsionPopUp" parent="." instance=ExtResource("3_kbqkc")]
+visible = false
+
+[node name="InputPopUp" parent="." instance=ExtResource("4_oucfa")]
+visible = false
+
+[node name="DebugRunner" type="Node" parent="." node_paths=PackedStringArray("dialog_popup", "decision_popup", "input_popup")]
+script = ExtResource("3_m802e")
+dialog_popup = NodePath("../DialogPopUp")
+decision_popup = NodePath("../DecsionPopUp")
+input_popup = NodePath("../InputPopUp")
+
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/ResetButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/ExportButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_export_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/LoadButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_load_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeStartButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_start_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeEndButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_end_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeDialogueButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_dialogue_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeInputButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_input_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeDecisionButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_decision_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeVariableButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_variable_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeConditionButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_condition_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeSignalButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_signal_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeGoToButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_goto_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/ButtonPanelContainer/NodeNotesButton" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_notes_button_pressed"]
+[connection signal="connection_request" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_connection_request"]
+[connection signal="copy_nodes_request" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_copy_nodes_request"]
+[connection signal="delete_nodes_request" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_delete_nodes_request"]
+[connection signal="disconnection_request" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_disconnection_request"]
+[connection signal="node_deselected" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_deselected"]
+[connection signal="node_selected" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_node_selected"]
+[connection signal="paste_nodes_request" from="ScreenContainer/MarginContainer/GraphEdit" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_paste_nodes_request"]
+[connection signal="start_debug" from="ScreenContainer/MarginContainer/GraphEdit" to="DebugRunner" method="_on_graph_edit_start_debug"]
+[connection signal="file_selected" from="ExportDialog" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_export_dialog_file_selected"]
+[connection signal="file_selected" from="OpenDialog" to="ScreenContainer/MarginContainer/GraphEdit" method="_on_open_dialog_file_selected"]
+[connection signal="dialog_next" from="DialogPopUp" to="DebugRunner" method="_on_dialog_pop_up_dialog_next"]
+[connection signal="decision_made" from="DecsionPopUp" to="DebugRunner" method="_on_decsion_pop_up_decision_made"]
+[connection signal="recieved_input" from="InputPopUp" to="DebugRunner" method="_on_input_pop_up_recieved_input"]
