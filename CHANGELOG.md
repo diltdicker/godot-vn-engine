@@ -1,6 +1,15 @@
 generated using [log-change](https://github.com/diltdicker/log-change)
 # Change Log
 
+# 0.2.0
+
+### Jan 18, 2024
+
+### New
+
+- Added HeadlessVnRunner Node for backend VisualNovel execution
+- emits signals with callbacks for progressing through VN graph
+
 # 0.1.0
 
 ### Jan 17, 2024
