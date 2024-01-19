@@ -6,6 +6,12 @@ class_name HeadlessVNRunner extends Node
 @export var default_start_param : String = ""
 ## Begins emitting signals from VN upon _ready()
 @export var start_on_ready: bool = false
+## If a variable node has already been visited, ingore it and skip to next node.
+## (useful if implementing a back feature)
+@export var ignore_visited_variables : bool = false
+## If a signal node has already been visited, ingore it and skip to next node.
+## (useful if implementing a back feature)
+@export var ignore_visited_signals : bool = false
 
 ## Current node in the VN graph
 var current_node : Dictionary
@@ -13,6 +19,8 @@ var current_node : Dictionary
 var current_id : String
 ## List of ids of previously seen dialogues (useful for if you want to implement skip functionality to your game)
 var seen_dialogues : Array[String] = []
+## List of all previously seen nodes
+var visited_nodes : Array[String] = []
 
 ## Signal emitted from signal node in VN graph
 signal vn_trigger_signaled(param: String)
@@ -52,6 +60,7 @@ func vn_start(param: String):
 	if !current_node:
 		push_error("unable to find start node with matching param [%s]" % param)
 		return
+	_update_current_node(current_node)
 	_update_current_node(VNRunnerUtil.get_next_node(current_node))
 	_handle_next_node(current_node)
 
@@ -103,10 +112,12 @@ func _load_vn_file():
 	VNRunnerUtil.vn_map = godot_vn_file
 
 func _update_current_node(vn_node: Dictionary) -> void:
-		current_node = vn_node
+		current_node = vn_node # have line before if statement to trigger failure
 		if !vn_node:
 			push_error("next vn_node is NULL")
 		else:
+			if current_id:
+				visited_nodes.append(current_id)
 			current_id = vn_node.id
 
 func _handle_next_node(vn_node: Dictionary) -> void:
@@ -134,7 +145,8 @@ func _handle_next_node(vn_node: Dictionary) -> void:
 			_handle_next_node(current_node)
 			
 		VnGraphNode.VnNodeType.VARIABLE:
-			VNRunnerUtil.apply_variable_node(current_node)
+			if !ignore_visited_variables || !vn_node.id in visited_nodes:
+				VNRunnerUtil.apply_variable_node(current_node)
 			_update_current_node(VNRunnerUtil.get_next_node(current_node))
 			_handle_next_node(current_node)
 			
@@ -145,7 +157,8 @@ func _handle_next_node(vn_node: Dictionary) -> void:
 			input_requested.emit(vn_node.user_input_q, input_callback)
 			
 		VnGraphNode.VnNodeType.SIGNAL:
-			vn_trigger_signaled.emit(vn_node.signal_param)
+			if !ignore_visited_signals || !vn_node.id in visited_nodes:
+				vn_trigger_signaled.emit(vn_node.signal_param)
 			_update_current_node(VNRunnerUtil.get_next_node(current_node))
 			_handle_next_node(current_node)
 			

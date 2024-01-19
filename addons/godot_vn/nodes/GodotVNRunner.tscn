@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://comyroytl26dh"]
+
+[ext_resource type="Script" path="res://addons/godot_vn/nodes/godot_vn_runner.gd" id="1_thd45"]
+[ext_resource type="PackedScene" uid="uid://bllpc5tuary60" path="res://addons/godot_vn/nodes/HeadlessVNRunner.tscn" id="2_gfy4u"]
+
+[node name="GodotVnRunner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thd45")
+
+[node name="HeadlessVnRunner" parent="." instance=ExtResource("2_gfy4u")]
+
+[connection signal="decision_reached" from="HeadlessVnRunner" to="." method="_on_headless_vn_runner_decision_reached"]
+[connection signal="dialogue_reached" from="HeadlessVnRunner" to="." method="_on_headless_vn_runner_dialogue_reached"]
+[connection signal="input_requested" from="HeadlessVnRunner" to="." method="_on_headless_vn_runner_input_requested"]
+[connection signal="vn_ended" from="HeadlessVnRunner" to="." method="_on_headless_vn_runner_vn_ended"]
+[connection signal="vn_trigger_signaled" from="HeadlessVnRunner" to="." method="_on_headless_vn_runner_vn_trigger_signaled"]
