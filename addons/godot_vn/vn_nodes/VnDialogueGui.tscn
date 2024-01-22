@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtqsalguw3tf7"]
+
+[ext_resource type="StyleBox" uid="uid://rxh7un1ffohg" path="res://addons/godot_vn/themes/gdvn_visual_novel.stylebox" id="1_f3irf"]
+[ext_resource type="Script" path="res://addons/godot_vn/vn_nodes/vn_dialogue_gui.gd" id="2_1m8xs"]
+[ext_resource type="StyleBox" uid="uid://cdeylbf5ub238" path="res://addons/godot_vn/themes/gdvn_name_tag.stylebox" id="2_l3nja"]
+
+[node name="VnDialogueGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1m8xs")
+
+[node name="DialoguePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.694
+anchor_right = 0.969
+anchor_bottom = 0.963
+offset_left = 0.479996
+offset_top = 0.47998
+offset_right = -0.480103
+offset_bottom = -0.0400391
+theme_override_styles/panel = ExtResource("1_f3irf")
+
+[node name="DialogueMarginContainer" type="MarginContainer" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 215
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 125
+
+[node name="VnDialogueEdit" type="RichTextLabel" parent="DialoguePanel/DialogueMarginContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 44
+bbcode_enabled = true
+text = "The quick brown fox Jumped over the lazy dog.
+Remember, remember, the Fifth of November, The Gunpowder Treason and Plot, I know of no reason why the [color=orange]Gunpowder Treason[/color] Should ever be forgot."
+scroll_active = false
+
+[node name="NametagPanel" type="Panel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = -0.11
+anchor_right = 0.343
+anchor_bottom = 0.1
+offset_left = -5.16928
+offset_top = -0.0999985
+offset_right = 0.0306396
+offset_bottom = 2.0
+theme_override_styles/panel = ExtResource("2_l3nja")
+
+[node name="CenterContainer" type="CenterContainer" parent="DialoguePanel/NametagPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NametagMarginContainer" type="MarginContainer" parent="DialoguePanel/NametagPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 2
+
+[node name="NameTagEdit" type="RichTextLabel" parent="DialoguePanel/NametagPanel/NametagMarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 44
+bbcode_enabled = true
+text = "[center]Edmond Dantès[/center]"
+scroll_active = false
+
+[node name="NextButton" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.936
+anchor_top = 0.759
+anchor_right = 0.983
+anchor_bottom = 0.941
+offset_left = -0.799927
+offset_top = -0.110016
+offset_right = 0.600098
+offset_bottom = 0.109985
+focus_mode = 0
+text = "Next"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="DialoguePanel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

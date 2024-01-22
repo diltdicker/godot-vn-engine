@@ -25,6 +25,3 @@ func get_hex_id():
 func export():
 	return null
 
-#func import(data):
-	#print('debug import')
-	#pass

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bllpc5tuary60"]
-
-[ext_resource type="Script" path="res://addons/godot_vn/nodes/headless_vn_runner.gd" id="1_cj41n"]
-
-[node name="HeadlessVnRunner" type="Node"]
-script = ExtResource("1_cj41n")

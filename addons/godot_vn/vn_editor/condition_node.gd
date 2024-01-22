@@ -48,7 +48,7 @@ func import_data(data : Dictionary):
 	
 
 
-func export() -> Dictionary:
+func export():
 	var var_value = ""
 	if var_type_sel.selected == var_type.BOOL:
 		var_value = 1 == var_bool_sel.selected

@@ -46,7 +46,7 @@ text = "ID:"
 
 [node name="NodeId" type="LineEdit" parent="NodeIdContainer"]
 layout_mode = 2
-text = "GotoNode"
+text = "GoToNode"
 editable = false
 expand_to_text_length = true
 

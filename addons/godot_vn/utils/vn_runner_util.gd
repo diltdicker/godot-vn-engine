@@ -53,6 +53,7 @@ static func apply_variable_node(cur_node: Dictionary) -> void:
 	elif op_int == VnVariableNode.var_operation.DIV: 
 		db_table[cur_node.var_name] /= cur_node.var_value
 		
+	
 	print("apply varaible %s, key: [%s], old-val: [%s], new-val: [%s]" % [cur_node.var_op, cur_node.var_name, 
 	str(old_val), str(db_table[cur_node.var_name])])
 
